@@ -42,7 +42,8 @@ export const useSubmitDonation = () => {
 				nonprofitSlug: config.nonprofitSlug,
 				fundraiserSlug: config.fundraiserSlug,
 				utmSource: config.utmSource,
-				privateNote
+				privateNote,
+				webhookUrl: config.webhookUrl,
 			};
 			switch (selectedPaymentMethod) {
 				case PaymentMethod.CRYPTO:
