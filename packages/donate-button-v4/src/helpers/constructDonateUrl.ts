@@ -14,6 +14,7 @@ interface BaseUrlParams {
 	methods?: PaymentMethod[];
 	privateNote?: string;
 	utmSource?: string;
+	webhookUrl?: string;
 }
 
 interface DonateUrlParams extends BaseUrlParams {
@@ -58,10 +59,11 @@ function getBaseParams({
 	nonprofitSlug,
 	noExit,
 	privateNote,
-	utmSource
+	utmSource,
+	webhookUrl
 }: Pick<
 	BaseUrlParams,
-	'nonprofitSlug' | 'methods' | 'noExit' | 'privateNote' | 'utmSource'
+	'nonprofitSlug' | 'methods' | 'noExit' | 'privateNote' | 'utmSource' | 'webhookUrl'
 >) {
 	return {
 		method: methods?.join(','),
@@ -69,7 +71,8 @@ function getBaseParams({
 		utm_source: utmSource ?? nonprofitSlug,
 		utm_medium: UTM_MEDIUM,
 		no_exit: noExit ?? 1,
-		private_note: privateNote
+		private_note: privateNote,
+		webhook_url: webhookUrl
 	};
 }
 
